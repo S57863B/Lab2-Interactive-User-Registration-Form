@@ -16,10 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmPasswordError = document.getElementById('confirmPasswordError');
 });
 
-    // Check the browser's local storage for a key named 'savedUsername'
-    const savedUsername = localStorage.getItem('savedUsername');
-    
-    // If a value exists , set the username input's value to that saved string
-    if (savedUsername) {
-        usernameInput.value = savedUsername;
-    }
+// Validation Functions
+    // Function to validate the Username field
+    const validateUsername = () => {
+        if (usernameInput.validity.valueMissing) {
+            usernameError.textContent = "Username is required.";
+            return false;
+        } 
+        else if (usernameInput.validity.tooShort) {
+            usernameError.textContent = "Username must be at least 3 characters.";
+            return false;
+        } 
+        else {
+            usernameError.textContent = "";
+            return true;
+        }
+    };
+
+    // Function to validate the Email field
+    const validateEmail = () => {
+        if (emailInput.validity.valueMissing) {
+            emailError.textContent = "Email is required.";
+            return false;
+        } 
+        else if (emailInput.validity.typeMismatch) {
+            emailError.textContent = "Please enter a valid email address (e.g., user@domain.com).";
+            return false;
+        } 
+        else {
+            emailError.textContent = "";
+            return true;
+        }
+    };
