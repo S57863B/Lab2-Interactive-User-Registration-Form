@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedUsername) {
         usernameInput.value = savedUsername;
     }
+    
 // Validation Functions
     // Function to validate the Username field
     const validateUsername = () => {
@@ -92,3 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return true;
         }
     };
+
+// Real-time event listeners
+    usernameInput.addEventListener('input', validateUsername);
+    emailInput.addEventListener('input', validateEmail);
+    passwordInput.addEventListener('input', validatePassword);
+    confirmPasswordInput.addEventListener('input', validateConfirmPassword);
