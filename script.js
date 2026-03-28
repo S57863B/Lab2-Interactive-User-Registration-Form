@@ -16,6 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmPasswordError = document.getElementById('confirmPasswordError');
 });
 
+    // Check the browser's local storage for a key named 'savedUsername'
+    const savedUsername = localStorage.getItem('savedUsername');
+    
+    // If a value exists , set the username input's value to that saved string
+    if (savedUsername) {
+        usernameInput.value = savedUsername;
+    }
 // Validation Functions
     // Function to validate the Username field
     const validateUsername = () => {
