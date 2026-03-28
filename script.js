@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailError = document.getElementById('emailError');
     const passwordError = document.getElementById('passwordError');
     const confirmPasswordError = document.getElementById('confirmPasswordError');
-});
+
 
 // Check the browser's local storage for a key named 'savedUsername'
 const savedUsername = localStorage.getItem('savedUsername');
@@ -139,4 +139,5 @@ form.addEventListener('submit', (event) => {
             confirmPasswordInput.focus();
         }
     }
+});
 });
