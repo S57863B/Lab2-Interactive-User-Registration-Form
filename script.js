@@ -55,3 +55,40 @@ document.addEventListener('DOMContentLoaded', () => {
             return true;
         }
     };
+
+       // Function to validate the main Password field
+    const validatePassword = () => {
+        if (passwordInput.validity.valueMissing) {
+            passwordError.textContent = "Password is required.";
+            return false;
+        } 
+        else if (passwordInput.validity.patternMismatch) {
+            passwordError.textContent = "Password must contain at least 8 characters, including uppercase, lowercase, and a number.";
+            return false;
+        } 
+        else {
+            passwordError.textContent = "";
+            if (confirmPasswordInput.value) {
+                validateConfirmPassword(); 
+            }
+            return true;
+        }
+    };
+
+    // Function to ensure both passwords match
+    const validateConfirmPassword = () => {
+        if (confirmPasswordInput.validity.valueMissing) {
+            confirmPasswordError.textContent = "Please confirm your password.";
+            return false;
+        } 
+        else if (confirmPasswordInput.value !== passwordInput.value) {
+            confirmPasswordInput.setCustomValidity("Passwords do not match");
+            confirmPasswordError.textContent = "Passwords do not match.";
+            return false;
+        } 
+        else {
+            confirmPasswordInput.setCustomValidity("");
+            confirmPasswordError.textContent = "";
+            return true;
+        }
+    };
