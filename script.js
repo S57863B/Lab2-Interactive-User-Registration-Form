@@ -15,3 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordError = document.getElementById('passwordError');
     const confirmPasswordError = document.getElementById('confirmPasswordError');
 });
+
+    // Check the browser's local storage for a key named 'savedUsername'
+    const savedUsername = localStorage.getItem('savedUsername');
+    
+    // If a value exists , set the username input's value to that saved string
+    if (savedUsername) {
+        usernameInput.value = savedUsername;
+    }
